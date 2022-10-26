@@ -8,25 +8,25 @@ import java.text.ParseException;
 public class SafeParse
 {
 	private SafeParse() {}
-	public static GResult<Integer, NumberFormatException> safeParseInt(String input)
+	public static GResult<Integer, ParseException> safeParseInt(String input)
 	{
 		try
 		{
-			return GResult.ok(Integer.parseInt(input));
+			return GResult.ok(NumberFormat.getInstance().parse(input).intValue());
 		}
-		catch (NumberFormatException exception)
+		catch (ParseException exception)
 		{
 			return GResult.error(exception);
 		}
 	}
 
-	public static GResult<Double, Exception> safeParseDouble(String input)
+	public static GResult<Double, ParseException> safeParseDouble(String input)
 	{
 		try
 		{
 			return GResult.ok(NumberFormat.getInstance().parse(input).doubleValue());
 		}
-		catch (NumberFormatException | ParseException exception)
+		catch (ParseException exception)
 		{
 			return GResult.error(exception);
 		}
