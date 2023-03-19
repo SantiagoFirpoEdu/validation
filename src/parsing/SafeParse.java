@@ -1,6 +1,6 @@
 package parsing;
 
-import result.GResult;
+import result.Result;
 
 import java.text.NumberFormat;
 import java.text.ParseException;
@@ -9,39 +9,39 @@ import java.util.Locale;
 public class SafeParse
 {
 	private SafeParse() {}
-	public static GResult<Integer, ParseException> safeParseInt(String input)
+	public static Result<Integer, ParseException> safeParseInt(String input)
 	{
 		try
 		{
-			return GResult.ok(NumberFormat.getInstance().parse(input).intValue());
+			return Result.ok(NumberFormat.getInstance().parse(input).intValue());
 		}
 		catch (ParseException exception)
 		{
-			return GResult.error(exception);
+			return Result.error(exception);
 		}
 	}
 
-	public static GResult<Double, ParseException> safeParseDouble(String input, Locale locale)
+	public static Result<Double, ParseException> safeParseDouble(String input, Locale locale)
 	{
 		try
 		{
-			return GResult.ok(NumberFormat.getInstance(locale).parse(input).doubleValue());
+			return Result.ok(NumberFormat.getInstance(locale).parse(input).doubleValue());
 		}
 		catch (ParseException exception)
 		{
-			return GResult.error(exception);
+			return Result.error(exception);
 		}
 	}
 
-	public static GResult<Double, ParseException> safeParseDouble(String input)
+	public static Result<Double, ParseException> safeParseDouble(String input)
 	{
 		try
 		{
-			return GResult.ok(NumberFormat.getInstance().parse(input).doubleValue());
+			return Result.ok(NumberFormat.getInstance().parse(input).doubleValue());
 		}
 		catch (ParseException exception)
 		{
-			return GResult.error(exception);
+			return Result.error(exception);
 		}
 	}
 }
