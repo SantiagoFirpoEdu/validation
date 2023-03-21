@@ -1,7 +1,7 @@
 package parsing;
 
-import common.FMapper;
 import option.Option;
+import org.jetbrains.annotations.NotNull;
 import result.Result;
 
 import java.text.NumberFormat;
@@ -11,7 +11,7 @@ import java.util.Locale;
 public class SafeParse
 {
 	private SafeParse() {}
-	public static Result<Integer, ParseException> safeParseInt(String input)
+	public static @NotNull Result<Integer, ParseException> safeParseInt(@NotNull String input)
 	{
 		try
 		{
@@ -23,7 +23,7 @@ public class SafeParse
 		}
 	}
 
-	public static Option<Integer> parseIntIgnoreError(String input)
+	public static @NotNull Option<Integer> parseIntIgnoreError(@NotNull String input)
 	{
 		try
 		{
@@ -35,7 +35,7 @@ public class SafeParse
 		}
 	}
 
-	public static Result<Double, ParseException> safeParseDouble(String input, Locale locale)
+	public static @NotNull Result<Double, ParseException> safeParseDouble(@NotNull String input, @NotNull Locale locale)
 	{
 		try
 		{
@@ -47,7 +47,7 @@ public class SafeParse
 		}
 	}
 
-	public static Result<Double, ParseException> safeParseDouble(String input)
+	public static @NotNull Result<Double, ParseException> safeParseDouble(@NotNull String input)
 	{
 		try
 		{

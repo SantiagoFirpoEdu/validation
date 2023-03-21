@@ -1,10 +1,13 @@
 package input;
 
+import org.jetbrains.annotations.NotNull;
+
 public class StringValidation
 {
-	private StringValidation() {}
-	public static boolean isNotBlank(String input)
+	public static boolean isNotBlank(@NotNull String input)
 	{
 		return !input.isBlank();
 	}
+
+	private StringValidation() {}
 }
