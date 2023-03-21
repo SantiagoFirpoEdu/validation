@@ -1,5 +1,7 @@
 package parsing;
 
+import common.FMapper;
+import option.Option;
 import result.Result;
 
 import java.text.NumberFormat;
@@ -18,6 +20,18 @@ public class SafeParse
 		catch (ParseException exception)
 		{
 			return Result.error(exception);
+		}
+	}
+
+	public static Option<Integer> parseIntIgnoreError(String input)
+	{
+		try
+		{
+			return Option.some(NumberFormat.getInstance().parse(input).intValue());
+		}
+		catch (ParseException exception)
+		{
+			return Option.none();
 		}
 	}
 
